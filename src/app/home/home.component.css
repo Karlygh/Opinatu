@@ -1,0 +1,108 @@
+
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: #f7c948;
+  margin-bottom: 2rem;
+}
+
+.pelicula-card {
+  background: #2c2c3e;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pelicula-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
+}
+
+h2 {
+  color: #f0f0f0;
+  margin-bottom: 0.5rem;
+}
+
+img {
+  display: block;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 3px solid #444;
+}
+
+p {
+  margin: 0.3rem 0;
+}
+
+strong {
+  color: #f7c948;
+}
+
+button {
+  margin-top: 1rem;
+  background: #f7c948;
+  color: #1e1e2f;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #ffdf70;
+}
+
+.formulario-opinion {
+  margin-top: 1rem;
+  background-color: #3a3a50;
+  padding: 1rem;
+  ::placeholder {
+    color: #ffdf70;
+  }
+  border-radius: 10px;
+  color: rgb(58, 61, 65);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background-color: #434349;
+  color: #fff;
+}
+
+input[type="number"] {
+  max-width: 150px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.opiniones {
+  margin-top: 1rem;
+}
+
+ul {
+  padding-left: 1rem;
+}
+
+li {
+  background-color: #3c3c55;
+  color: #9b9898;
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  list-style: none;
+}

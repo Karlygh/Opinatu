@@ -1,0 +1,26 @@
+<div class="login-container">
+  <h2>Bienvenido a OpinasTu</h2>
+  <form (ngSubmit)="onSubmit()" class="login-form">
+    <input 
+      type="text" 
+      placeholder="Usuario (admin)" 
+      [(ngModel)]="email" 
+      name="email" 
+      required
+    >
+    <input 
+      type="password" 
+      placeholder="Contraseña (admin)" 
+      [(ngModel)]="password" 
+      name="password" 
+      required
+    >
+    <div *ngIf="loginError" class="error-message">
+      {{ loginError }}
+    </div>
+    <button type="submit" class="login-button">Ingresar</button>
+  </form>
+  <p class="register-link">
+    ¿No tienes cuenta? <a [routerLink]=" '/register' ">Regístrate aquí</a>
+  </p>
+</div>
