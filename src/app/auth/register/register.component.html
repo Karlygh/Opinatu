@@ -1,0 +1,30 @@
+<div class="register-container">
+    <h2>Crear cuenta en OpinasTu</h2>
+    <form (ngSubmit)="onSubmit()" class="register-form">
+      <input 
+        type="text" 
+        placeholder="Nombre completo" 
+        [(ngModel)]="name" 
+        name="name" 
+        required
+      >
+      <input 
+        type="email" 
+        placeholder="Email" 
+        [(ngModel)]="email" 
+        name="email" 
+        required
+      >
+      <input 
+        type="password" 
+        placeholder="Contraseña" 
+        [(ngModel)]="password" 
+        name="password" 
+        required
+      >
+      <button type="submit" class="register-button">Registrarse</button>
+    </form>
+    <p class="login-link">
+      ¿Ya tienes cuenta? <a [routerLink]=" '/login' ">Inicia sesión aquí</a>
+    </p>
+  </div>

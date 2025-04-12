@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<!-- mis-opiniones.component.html -->
+<div class="container mt-5">
+    <h2 class="text-warning mb-4">Mis Opiniones</h2>
+    
+    <div *ngIf="opiniones.length === 0" class="alert alert-info">
+      No has enviado ninguna opinión todavía.
+    </div>
+  
+    <div class="row g-4">
+      <div *ngFor="let opinion of opiniones" class="col-12 col-md-6 col-lg-4">
+        <div class="card bg-dark text-white h-100">
+          <div class="card-body">
+            <h5 class="card-title text-warning">{{opinion.titulo}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Nota: {{opinion.nota}}/10</h6>
+            <p class="card-text">{{opinion.opinion}}</p>
+          </div>
+          <div class="card-footer bg-secondary">
+            <small>Publicado por: {{opinion.name}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
