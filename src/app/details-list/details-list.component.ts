@@ -15,6 +15,7 @@ import { FooterComponent } from '../footer/footer.component';
 export class DetailsListComponent implements OnInit {
   pelicula: any;
   peliculasAleatorias: any[] = [];
+  isLoading = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,45 +24,59 @@ export class DetailsListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log('ID recibido en DetailsListComponent:', id);  // Agrega un log para verificar el ID
-    
-    if (!isNaN(id)) {
-      this.peliculaService.getPeliculas().subscribe({
-        next: (data) => {
-          this.pelicula = data.movies.find((p: any) => p.id === id);
-          if (!this.pelicula) {
-            console.warn('Película no encontrada, redirigiendo al home');
-            this.router.navigate(['/home']);
-          }
-        },
-        error: (err) => {
-          console.error('Error al obtener las películas', err);
+    this.route.paramMap.subscribe(params => {
+      const id = Number(params.get('id'));
+      
+      if (!isNaN(id)) {
+        this.loadPeliculaData(id);
+      } else {
+        this.router.navigate(['/home']);
+      }
+    });
+  }
+
+  private loadPeliculaData(id: number): void {
+    this.peliculaService.getPeliculas().subscribe({
+      next: (data) => {
+        this.pelicula = data.movies.find((p: any) => p.id === id);
+        
+        if (this.pelicula) {
+          this.loadRandomMovies(data.movies);
+        } else {
           this.router.navigate(['/home']);
         }
-      });
-    } else {
-      console.warn('ID inválido, redirigiendo al home');
-      this.router.navigate(['/home']);
-    }
+        
+        this.isLoading = false;
+      },
+      error: (err) => {
+        console.error('Error loading movies', err);
+        this.router.navigate(['/home']);
+        this.isLoading = false;
+      }
+    });
   }
-  
-  cargarPeliculasAleatorias(todasLasPeliculas: any[]) {
-    this.peliculasAleatorias = todasLasPeliculas
-      .filter((p: any) => p.title !== this.pelicula.title)
+
+  private loadRandomMovies(allMovies: any[]): void {
+    this.peliculasAleatorias = allMovies
+      .filter(p => p.id !== this.pelicula.id)
       .sort(() => 0.5 - Math.random())
       .slice(0, 12);
   }
 
   dividirEnGrupos(array: any[], tamanoGrupo: number): any[][] {
-    const grupos = [];
-    for (let i = 0; i < array.length; i += tamanoGrupo) {
-      grupos.push(array.slice(i, i + tamanoGrupo));
-    }
-    return grupos;
+    return array.reduce((result, item, index) => {
+      const groupIndex = Math.floor(index / tamanoGrupo);
+      
+      if (!result[groupIndex]) {
+        result[groupIndex] = [];
+      }
+      
+      result[groupIndex].push(item);
+      return result;
+    }, []);
   }
 
   verDetalles(id: number): void {
-    this.router.navigate([`/details-list/${id}`]);
+    this.router.navigate(['/details-list', id]);
   }
 }

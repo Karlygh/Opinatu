@@ -1,7 +1,6 @@
 <app-navbar></app-navbar>
 
 <h1 class="text-center text-warning mb-5">Películas</h1>
-<!-- Filtro de género -->
 <div class="container mb-4">
   <app-filtro-genero
     [peliculas]="peliculas"
@@ -20,11 +19,11 @@
         <p><strong>Fecha:</strong> {{ peli.year }}</p>
         <p><strong>Clasificación:</strong> <span class="fw-bold mx-1">{{ peli.rating }}</span></p>
 
-        <button 
-          class="btn btn-warning mt-auto movie-button" 
-          data-bs-toggle="modal" 
+        <button
+          class="btn btn-warning mt-auto movie-button"
+          data-bs-toggle="modal"
           data-bs-target="#opinionModal"
-          (click)="verDetalles(peli.id)">
+          (click)="seleccionarPeli(peli)">
           Añadir opinión
         </button>
 
@@ -45,18 +44,17 @@
       </div>
     </div>
   </div>
-</div> <!-- FIN DEL CONTAINER -->
+</div>
 
-<!-- Modal para añadir opiniones -->
 <div class="modal fade" id="opinionModal" tabindex="-1" aria-labelledby="opinionModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header border-warning d-flex justify-content-center position-relative">
         <h5 class="modal-title text-center w-100" id="opinionModalLabel">Opinión sobre {{peliSeleccionada?.title}}</h5>
-        <button 
-          type="button" 
-          class="btn-close position-absolute end-0 me-2" 
-          data-bs-dismiss="modal" 
+        <button
+          type="button"
+          class="btn-close position-absolute end-0 me-2"
+          data-bs-dismiss="modal"
           aria-label="Close"
           style="filter: invert(1) grayscale(100%) brightness(200%);">
           &times;
@@ -72,7 +70,7 @@
             [(ngModel)]="nombre"
             placeholder="Tu nombre">
         </div>
-        
+
         <div class="mb-3">
           <label for="textareaOpinion" class="form-label">Escribe tu opinión</label>
           <textarea
@@ -82,7 +80,7 @@
             [(ngModel)]="opinion"
             placeholder="Tu opinión"></textarea>
         </div>
-        
+
         <div class="mb-3">
           <label for="inputNota" class="form-label">Puntúa de 1 a 10</label>
           <input
@@ -103,29 +101,28 @@
   </div>
 </div>
 
-<!-- Controles de paginación -->
 <div class="d-flex justify-content-center mt-4">
   <nav aria-label="Page navigation">
     <ul class="pagination">
       <li class="page-item" [class.disabled]="paginaActual === 1">
-        <a class="page-link " 
-           (click)="cambiarPagina(paginaActual - 1)" 
+        <a class="page-link "
+           (click)="cambiarPagina(paginaActual - 1)"
            aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
-      
-      <li class="page-item" *ngFor="let pagina of getRangoPaginas()" 
+
+      <li class="page-item" *ngFor="let pagina of getRangoPaginas()"
           [class.active]="pagina === paginaActual">
-        <a class="page-link bg-dark text-warning border-warning" 
+        <a class="page-link bg-dark text-warning border-warning"
            (click)="cambiarPagina(pagina)">
           {{ pagina }}
         </a>
       </li>
-      
+
       <li class="page-item" [class.disabled]="paginaActual === totalPaginas">
-        <a class="page-link bg-dark text-warning border-warning" 
-           (click)="cambiarPagina(paginaActual + 1)" 
+        <a class="page-link bg-dark text-warning border-warning"
+           (click)="cambiarPagina(paginaActual + 1)"
            aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
         </a>
@@ -134,5 +131,4 @@
   </nav>
 </div>
 
-<!-- Footer FUERA del container para ocupar 100% -->
 <app-footer></app-footer>

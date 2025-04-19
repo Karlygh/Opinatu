@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
       next: (data) => {
         this.peliculas = data.movies.map((peli: any, index: number) => ({
           ...peli,
-          id: peli.id ?? index  // Asegura que cada película tenga un ID
+          id: peli.id ?? index
         }));
         this.peliculasFiltradas = [...this.peliculas];
         this.inicializarPaginacion();
@@ -106,7 +106,6 @@ export class HomeComponent implements OnInit {
     this.opinion = '';
     this.nota = 0;
   }
-
   enviar() {
     if (this.nombre && this.opinion && this.peliSeleccionada && this.nota >= 1 && this.nota <= 10) {
       const nuevaOpinion = {
@@ -116,28 +115,22 @@ export class HomeComponent implements OnInit {
         titulo: this.peliSeleccionada.title
       };
 
-      if (!this.peliSeleccionada.opinions) {
-        this.peliSeleccionada.opinions = [];
-      }
-
-      this.peliSeleccionada.opinions.push(nuevaOpinion);
+      console.log('Opinión a enviar al servicio:', nuevaOpinion);
       this.opinionesService.agregarOpinion(nuevaOpinion);
-      alert('¡Opinión enviada con éxito!');
-
+      this.router.navigate(['/mis-opiniones']);
       this.nombre = '';
       this.opinion = '';
       this.nota = 0;
+      this.peliSeleccionada = null;
     } else {
-      alert('Por favor, completa todos los campos correctamente (nota entre 1 y 10).');
+      alert('Por favor, completa todos los campos, incluyendo la nota (1-10).');
     }
   }
-
   verDetalles(movieId: number) {
     if (movieId) {
-      this.router.navigate([`/details-list/${movieId}`]); // Cambiado a 'details-list'
+      this.router.navigate([`/details-list/${movieId}`]);
     } else {
       console.error('ID de película inválido');
     }
   }
-  }
-
+}

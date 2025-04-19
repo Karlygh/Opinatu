@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OpinionesService } from '../servicios/opiniones.service';
 import { CommonModule } from '@angular/common';
+import { OpinionesService } from '../servicios/opiniones.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
@@ -8,12 +8,22 @@ import { NavbarComponent } from '../navbar/navbar.component';
   standalone: true,
   imports: [CommonModule,NavbarComponent],
   templateUrl: './mis-opiniones.component.html',
-  styleUrl: './mis-opiniones.component.css'
+  styleUrls: ['./mis-opiniones.component.css']
 })
 export class MisOpinionesComponent implements OnInit {
   opiniones: any[] = [];
-  constructor(private opinionesService: OpinionesService) { }
+
+  constructor(private opinionesService: OpinionesService) {
+    console.log('MisOpinionesComponent construido');
+  }
+
   ngOnInit(): void {
-    this.opiniones = this.opinionesService.getOpiniones();
+    console.log('MisOpinionesComponent ngOnInit ejecutado');
+    this.cargarOpiniones();
+  }
+
+  cargarOpiniones() {
+    this.opiniones = this.opinionesService.obtenerOpiniones();
+    console.log('Opiniones cargadas en MisOpiniones:', this.opiniones);
   }
 }

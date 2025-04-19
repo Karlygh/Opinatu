@@ -1,8 +1,19 @@
 <app-navbar></app-navbar>
-<div class="container mt-5" *ngIf="pelicula">
+
+<div class="container mt-5">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="text-center py-5">
+    <div class="spinner-border text-warning" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="text-white mt-3">Cargando película...</p>
+  </div>
+
+  <!-- Movie Details -->
+  <div *ngIf="pelicula && !isLoading">
     <div class="row">
       <div class="col-md-4">
-        <img [src]="pelicula.imageUrl" alt="{{ pelicula.title }}" class="img-fluid rounded shadow-lg mb-4">
+        <img [src]="pelicula.imageUrl" [alt]="pelicula.title" class="img-fluid rounded shadow-lg mb-4">
       </div>
       <div class="col-md-8 text-white">
         <h2 class="mb-3">{{ pelicula.title }} <span class="text-warning">({{ pelicula.year }})</span></h2>
@@ -14,16 +25,14 @@
           <p><strong class="text-warning">Clasificación:</strong> {{ pelicula.rating }}/10</p>
         </div>
         
-        <div class="container mt-4" *ngIf="pelicula">
-            <div class="card bg-dark border-warning mb-4">
-              <div class="card-header text-warning">
-                <h5 class="mb-0">Sinopsis</h5>
-              </div>
-              <div class="card-body">
-                <p class="card-text">{{ pelicula.resumen }}</p>
-              </div>
-            </div>
+        <div class="card bg-dark border-warning mb-4">
+          <div class="card-header text-warning">
+            <h5 class="mb-0">Sinopsis</h5>
           </div>
+          <div class="card-body">
+            <p class="card-text">{{ pelicula.resumen }}</p>
+          </div>
+        </div>
         
         <button class="btn btn-warning mt-3" (click)="router.navigate(['/home'])">
           <i class="bi bi-arrow-left"></i> Volver al listado
@@ -31,7 +40,7 @@
       </div>
     </div>
     
-    <!-- Sección de opiniones -->
+    <!-- User Reviews Section -->
     <div class="row mt-5" *ngIf="pelicula.opinions?.length">
       <div class="col-12">
         <h3 class="text-warning mb-4">Opiniones de los usuarios</h3>
@@ -48,21 +57,20 @@
     </div>
   </div>
 
-  <div class="row mt-5 mx-3" *ngIf="peliculasAleatorias.length">
+  <!-- Related Movies Carousel -->
+  <div class="row mt-5 mx-3" *ngIf="peliculasAleatorias.length && !isLoading">
     <div class="col-12">
       <h3 class="text-warning mb-4 text-center">Otras películas que te pueden interesar</h3>
       
-      <!-- Carrusel Bootstrap -->
       <div id="peliculasCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <!-- Agrupamos las películas en slides (4 por slide) -->
-          <div class="carousel-item" *ngFor="let grupo of dividirEnGrupos(peliculasAleatorias, 4); let i = index" [class.active]="i === 0">
+          <div class="carousel-item" *ngFor="let grupo of dividirEnGrupos(peliculasAleatorias, 4); let i = index" 
+               [class.active]="i === 0">
             <div class="row g-3 justify-content-center">
               <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6 mb-4 tarjeta-margen" *ngFor="let peli of grupo">
                 <div class="card bg-dark border-warning h-100 pelicula-card"
-                (click)="verDetalles(peli.id); $event.stopPropagation()"
-                style="cursor: pointer;">
-           
+                     (click)="verDetalles(peli.id); $event.stopPropagation()"
+                     style="cursor: pointer;">
                   <img [src]="peli.imageUrl" class="card-img-top img-pelicula" [alt]="peli.title">
                   <div class="card-body d-flex flex-column p-2">
                     <h5 class="card-title text-white text-truncate">{{ peli.title }}</h5>
@@ -74,16 +82,19 @@
           </div>
         </div>
         
-        <!-- Controles del carrusel -->
-        <button class="carousel-control-prev custom-carousel-arrow" type="button" data-bs-target="#peliculasCarousel" data-bs-slide="prev">
+        <button class="carousel-control-prev custom-carousel-arrow" type="button" 
+                data-bs-target="#peliculasCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next custom-carousel-arrow" type="button" data-bs-target="#peliculasCarousel" data-bs-slide="next">
+        <button class="carousel-control-next custom-carousel-arrow" type="button" 
+                data-bs-target="#peliculasCarousel" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
     </div>
   </div>
+</div>
+
 <app-footer></app-footer>
