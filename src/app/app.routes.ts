@@ -21,5 +21,9 @@ export const routes: Routes = [
   {
     path: 'details-list/:id',
     loadComponent: () => import('./details-list/details-list.component').then(m => m.DetailsListComponent)
+  },
+  {
+    path: 'actores',
+    loadComponent: () => import('./personajes/personajes.component').then(m => m.PersonajesComponent)
   }
 ];

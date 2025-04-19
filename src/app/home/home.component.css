@@ -64,7 +64,7 @@ ul {
 }
 
 li {
-  background-color: #3c3c55;
+  background-color: #b8b8d3;
   color: #e0e0e0;
   padding: 0.8rem;
   border-radius: 8px;
@@ -79,7 +79,7 @@ li {
   background-color: tomato;
 }
 .modal-content {
-  background-color: #0b0b16;
+  background-color: #212529;
   border: 2px solid #f7c948;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
@@ -97,14 +97,14 @@ li {
 
 .modal-body {
   padding: 1.5rem;
-  background-color:#1e1e2f;
+  background-color:#0f0f13;
   font-style: italic;
 }
 
 .modal-footer {
   border-top: 2px solid #f7c948;
   padding: 1rem 1.5rem;
-  background-color: #0b0b16;
+  background-color: #282b2e;
 }
 
 /* Formulario en modal */

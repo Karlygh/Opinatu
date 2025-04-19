@@ -19,8 +19,8 @@
 <div class="col-md-2 mb-4 mb-md-0 mt-4">
     <h5 class="text-uppercase mb-3 text-center">Explorar</h5>
     <ul class="list-unstyled text-center">
-      <li class="mb-2"><a href="#" class="color-li d-block">Inicio</a></li>
-      <li class="mb-2"><a href="#" class="color-li d-block">Películas</a></li>
+      <li class="mb-2"><a [routerLink]="['/home']" class="color-li d-block">Inicio</a></li>
+      <li class="mb-2"><a [routerLink]="['/home']" class="color-li d-block">Películas</a></li>
       <li class="mb-2"><a href="#" class="color-li d-block">Personajes</a></li>
       <li class="mb-2"><a href="#" class="color-li d-block">Escenas</a></li>
       <li><a href="#" class="color-li d-block">Soundtracks</a></li>
@@ -32,11 +32,11 @@
         <div class="col-md-3 mb-4 mb-md-0 mt-4 text-center">
           <h5 class="text-uppercase mb-3">Clásicos</h5>
           <ul class="list-unstyled">
-            <li class="mb-2"><a href="#" class="color-clasicos">Pulp Fiction</a></li>
-            <li class="mb-2"><a href="#" class="color-clasicos">Kill Bill</a></li>
-            <li class="mb-2"><a href="#" class="color-clasicos">Django Unchained</a></li>
-            <li class="mb-2"><a href="#" class="color-clasicos">Inglourious Basterds</a></li>
-            <li><a href="#" class="color-clasicos">Reservoir Dogs</a></li>
+            <li class="mb-2"><a [routerLink]="['/details-list', 2]" class="color-clasicos">Pulp Fiction</a></li>
+            <li class="mb-2"><a [routerLink]="['/details-list', 1]" class="color-clasicos">Kill Bill</a></li>
+            <li class="mb-2"><a [routerLink]="['/details-list', 9]" class="color-clasicos">Django Unchained</a></li>
+            <li class="mb-2"><a [routerLink]="['/details-list', 8]" class="color-clasicos">Inglourious Basterds</a></li>
+            <li><a [routerLink]="['/details-list', 4]" class="color-clasicos">Reservoir Dogs</a></li>
           </ul>
         </div>
   
