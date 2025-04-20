@@ -1,0 +1,164 @@
+/* Estilos generales del componente */
+.text-center {
+    text-align: center;
+  }
+  
+  .text-warning {
+    color: #ffc107;
+  }
+  
+  .mb-5 {
+    margin-bottom: 3rem;
+  }
+  
+  .bg-dark {
+    background-color: #343a40 !important;
+  }
+  
+  .text-white {
+    color: #fff !important;
+  }
+  
+  .border-warning {
+    border-color: #ffc107 !important;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1.5rem;
+  }
+  
+  .btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529;
+  }
+  
+  .btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+  }
+  
+  .list-group-item {
+    border: 1px solid #ffc107;
+    background-color: #343a40;
+    color: white;
+  }
+  
+  /* Modal */
+  .modal-content {
+    background-color: #212529;
+    border: 2px solid #f7c948;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  }
+  
+  .modal-header {
+    border-bottom: 2px solid #f7c948;
+    padding: 1.2rem 1.5rem;
+  }
+  
+  .modal-title {
+    color: #f7c948;
+    font-size: 1.4rem;
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+    background-color: #0f0f13;
+  }
+  
+  .modal-footer {
+    border-top: 2px solid #f7c948;
+    padding: 1rem 1.5rem;
+    background-color: #282b2e;
+  }
+  
+  .form-label {
+    color: #ffc107;
+    font-weight: 500;
+  }
+  
+  .form-control {
+    background-color: #495057;
+    color: white;
+    border-color: #ffc107;
+  }
+  
+  .form-control:focus {
+    border-color: #e0a800;
+    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+  }
+  
+  .btn-outline-warning {
+    border-color: #ffc107;
+    color: #ffc107;
+  }
+  
+  .btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: #212529;
+  }
+  
+  .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+  }
+  
+  /* Estilos personalizados para el select de películas */
+  .select-peliculas {
+    background-color: #495057;
+    color: white;
+    border: 2px solid #ffc107;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .select-peliculas:hover {
+    background-color: #5a6268;
+    border-color: #e0a800;
+  }
+  
+  .select-peliculas:focus {
+    background-color: #495057;
+    border-color: #e0a800;
+    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+    outline: none;
+  }
+  
+  /* Estilo para las opciones del dropdown */
+  .select-peliculas option {
+    background-color: #495057;
+    color: white;
+  }
+  
+  /* Otros estilos generales */
+  .container {
+    padding: 0 15px;
+  }
+  
+  h1, h4 {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  ul.list-group {
+    margin-bottom: 2rem;
+  }
+  
+  .text-info {
+    color: #17a2b8;
+  }
+  
+  .bg-secondary {
+    background-color: #6c757d !important;
+  }

@@ -13,3 +13,16 @@
     font-weight: bold;
     color: #ffc107 !important;
   }
+  .color-navbar{
+    background-color:#171a1d;
+  }
+  .nav-link{
+    color: rgb(136, 132, 132);
+  }
+  .nav-link {
+    transition: all 0.3s ease;
+  }
+  .nav-link:hover {
+    color: #f1f099;
+    transform: scale(1.05);
+  }

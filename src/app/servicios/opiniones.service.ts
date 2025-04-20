@@ -16,4 +16,15 @@ export class OpinionesService {
     console.log('Obteniendo opiniones:', [...this.opiniones]);
     return [...this.opiniones];
   }
+  actualizarOpinion(index: number, opinion: any) {
+    if (index >= 0 && index < this.opiniones.length) {
+      this.opiniones[index] = opinion;
+    }
+  }
+
+  eliminarOpinion(index: number) {
+    if (index >= 0 && index < this.opiniones.length) {
+      this.opiniones.splice(index, 1);
+    }
+  }
 }
