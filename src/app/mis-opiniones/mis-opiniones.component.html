@@ -11,21 +11,29 @@
   </button>
 </div>
 
-<div class="container">
+<div class="container ">
   <ul class="list-group" *ngIf="opiniones.length > 0; else noOpiniones">
-    <li class="list-group-item bg-dark text-white border-warning mb-4" *ngFor="let opinion of opiniones; let i = index">
+    <li id="opinion-item" class="list-group-item bg-dark text-white border-warning mb-4 opinion-item" *ngFor="let opinion of opiniones; let i = index">
+      
       <div *ngIf="editandoIndex !== i; else editando">
-        <strong>Película:</strong> {{ opinion.titulo }}<br>
-        <strong>Usuario:</strong> {{ opinion.name }}<br>
-        <strong>Opinión:</strong> {{ opinion.opinion }}<br>
-        <strong>Nota:</strong> {{ opinion.nota }}
+        <strong class="title-container-opinion">Película:</strong>
+        <span class="contenido-opinion">{{ opinion.titulo }}</span><br>
+        
+        <strong class="title-container-opinion">Usuario:</strong>
+        <span class="contenido-opinion">{{ opinion.name }}</span><br>
+
+        <strong class="title-container-opinion">Opinión:</strong>
+        <span class="contenido-opinion">{{ opinion.opinion }}</span><br>
+
+        <strong class="title-container-opinion">Nota:</strong>
+        <span class="contenido-opinion">{{ opinion.nota }}</span>
         
         <div class="mt-3">
           <button class="btn btn-warning btn-sm me-2" (click)="editarOpinion(i)">Editar</button>
           <button class="btn btn-danger btn-sm" (click)="eliminarOpinion(i)">Eliminar</button>
         </div>
       </div>
-      
+
       <ng-template #editando>
         <form (ngSubmit)="guardarEdicion()">
           <div class="mb-3">
@@ -52,9 +60,12 @@
       </ng-template>
     </li>
   </ul>
-  
   <ng-template #noOpiniones>
-    <p class="text-center text-info">Aún no has añadido ninguna opinión.</p>
+    <div class="text-center ">
+      <p class="text-white">No tienes opiniones aún.</p>
+      <p class="text-color-opinion">
+        <i class="bi-chat-dots me-1 mb-4"></i> Añade opiniones para descubrir nuevas funciones.</p>
+    </div>
   </ng-template>
 </div>
 
@@ -140,5 +151,3 @@
     </div>
   </div>
 </div>
-
-<app-footer></app-footer>

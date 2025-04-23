@@ -4,7 +4,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-dark text-warning py-1 border-top border-warning ">
+  <footer class="site-footer bg-dark text-warning py-1 border-top border-warning">
     <div class="container-fluid margin-footer">
       <div class="row">
         <!-- Columna 1: Logo y descripción -->
@@ -15,10 +15,18 @@
             Sangre, diálogos afilados y momentos inolvidables.
           </p>
           <div class="d-flex mt-3">
-            <a href="#" class="text-warning me-2"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="text-warning me-1"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" class="text-warning me-3"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="text-warning"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.facebook.com/TarantinoQuentin/" class="text-warning me-2" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://twitter.com/QTarantino_news" class="text-warning me-1" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            <a href="https://www.instagram.com/tarantinomovies/" class="text-warning me-3" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/user/TarantinoXXI" class="text-warning" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-youtube"></i>
+            </a>
           </div>
         </div>
 
@@ -49,19 +57,19 @@
           <h5 class="text-uppercase mb-3">Clásicos</h5>
           <ul class="list-unstyled">
             <li class="mb-2">
-              <a [routerLink]="['/details-list', 2]" class="color-clasicos">Pulp Fiction</a>
+              <a [routerLink]="['/details-list', 2]">Pulp Fiction</a>
             </li>
             <li class="mb-2">
-              <a [routerLink]="['/details-list', 1]" class="color-clasicos">Kill Bill</a>
+              <a [routerLink]="['/details-list', 1]">Kill Bill</a>
             </li>
             <li class="mb-2">
-              <a [routerLink]="['/details-list', 9]" class="color-clasicos">Django Unchained</a>
+              <a [routerLink]="['/details-list', 9]">Django Unchained</a>
             </li>
             <li class="mb-2">
-              <a [routerLink]="['/details-list', 8]" class="color-clasicos">Inglourious Basterds</a>
+              <a [routerLink]="['/details-list', 8]">Inglourious Basterds</a>
             </li>
             <li>
-              <a [routerLink]="['/details-list', 4]" class="color-clasicos">Reservoir Dogs</a>
+              <a [routerLink]="['/details-list', 4]">Reservoir Dogs</a>
             </li>
           </ul>
         </div>
@@ -69,11 +77,14 @@
         <!-- Columna 4: Newsletter -->
         <div class="col-md-3 mt-4 margin-newsletter">
           <h5 class="text-uppercase mb-3">Newsletter</h5>
-          <p class="small">Suscríbete para recibir novedades del mundo Tarantino.</p>
-          <div class="input-group mb-3">
-            <input type="email" class="form-control bg-secondary text-white border-warning" placeholder="Tu email" />
-            <button class="btn btn-warning" type="button">
-              <i class="bi bi-envelope-arrow-up"></i>
+          <p class="small mb-3">Suscríbete para recibir novedades del mundo Tarantino.</p>
+          <div class="input-group pe-3">
+            <input type="email"
+                   class="form-control bg-secondary text-white border-warning me-2"
+                   placeholder="Tu email"
+                   [(ngModel)]="email">
+            <button class="btn btn-warning ms-1 px-3" type="button" (click)="enviarCorreo()">
+              &gt;
             </button>
           </div>
         </div>

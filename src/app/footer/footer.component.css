@@ -1,27 +1,12 @@
-.page-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Asegura que ocupe al menos la altura de la ventana */
-}
-
-.content-wrap {
-  flex: 1 1 auto; /* Permite que el contenido crezca y se encoja */
-}
-
-/* Los estilos específicos del footer deberían estar en su propio componente CSS */
-/* Aquí solo aseguramos que no interfiera con el layout */
 footer {
-  flex-shrink: 0; /* Evita que el footer se encoja */
+  flex-shrink: 0;
 }
 
 footer a {
-  transition: all 0.3s ease;
+  color: #f1eda1;
+  text-decoration: none;
   position: relative;
-}
-
-footer a:hover {
-  color: #ffffff !important;
-  text-decoration: underline !important;
+  transition: all 0.3s ease;
 }
 
 footer a::after {
@@ -35,7 +20,14 @@ footer a::after {
   transition: width 0.3s ease;
 }
 
-footer a:hover::after {
+footer a:hover,
+footer a:active {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+
+footer a:hover::after,
+footer a:active::after {
   width: 100%;
 }
 
@@ -82,20 +74,24 @@ footer .form-control.bg-secondary:focus {
   }
 }
 
-.color-li {
-  color: #f1eda1;
-  text-decoration: none;
-}
-
-.color-clasicos {
-  color: #f1eda1;
-  text-decoration: none;
-}
-
 .margin-footer {
   margin-left: 10px;
 }
 
 .margin-newsletter {
   padding: -15px;
+}
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  flex: 1;
+}
+
+.site-footer {
+  margin-top: auto;
+  width: 100%;
 }

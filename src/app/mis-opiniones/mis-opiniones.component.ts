@@ -3,14 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OpinionesService } from '../servicios/opiniones.service';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from "../footer/footer.component";
 import { PeliculaService } from '../servicios/pelicula.service';
-import { map } from 'rxjs/operators'; // <-- IMPORTANTE para map
 
 @Component({
   selector: 'app-mis-opiniones',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FormsModule, FooterComponent],
+  imports: [CommonModule, NavbarComponent, FormsModule],
   templateUrl: './mis-opiniones.component.html',
   styleUrls: ['./mis-opiniones.component.css']
 })
@@ -24,7 +22,7 @@ export class MisOpinionesComponent implements OnInit {
     opinion: '',
     nota: null
   };
-  peliculas: string[] = [];  // Array para almacenar los títulos de las películas
+  peliculas: string[] = [];
 
   constructor(
     private opinionesService: OpinionesService,
@@ -33,10 +31,8 @@ export class MisOpinionesComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarOpiniones();
-    // Llamada al servicio para obtener los títulos de las películas desde Mockoon
     this.peliculaService.getTitulos().subscribe((data) => {
-      console.log(data); // Verifica en la consola si los datos se reciben correctamente
-      this.peliculas = data;  // Asigna los títulos al array
+      this.peliculas = data;
     });
   }
 
@@ -63,8 +59,12 @@ export class MisOpinionesComponent implements OnInit {
   }
 
   eliminarOpinion(index: number) {
-    this.opinionesService.eliminarOpinion(index);
-    this.cargarOpiniones();
+    // Confirmar antes de eliminar
+    if (confirm('¿Estás seguro de eliminar esta opinión?')) {
+      this.opinionesService.eliminarOpinion(index);
+      // Actualizar la vista correctamente
+      this.opiniones = this.opinionesService.obtenerOpiniones();
+    }
   }
 
   obtenerTop3() {
@@ -77,10 +77,11 @@ export class MisOpinionesComponent implements OnInit {
     const { titulo, name, opinion, nota } = this.nuevaOpinion;
 
     if (titulo.trim() && name.trim() && opinion.trim() && nota !== null && nota >= 1 && nota <= 10) {
-      this.opiniones.push({ ...this.nuevaOpinion });
+      this.opinionesService.agregarOpinion({ ...this.nuevaOpinion });
       this.nuevaOpinion = { titulo: '', name: '', opinion: '', nota: null };
+      this.cargarOpiniones();
     } else {
-      alert('Completa todos los campos correctamente');
+      alert('Por favor completa todos los campos correctamente');
     }
   }
 }

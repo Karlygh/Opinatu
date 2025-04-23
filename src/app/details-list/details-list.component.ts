@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { PeliculaService } from '../servicios/pelicula.service';
-import { FooterComponent } from '../footer/footer.component';
+
 
 @Component({
   selector: 'app-details-list',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FooterComponent, RouterModule],
+  imports: [CommonModule, NavbarComponent,  RouterModule],
   templateUrl: './details-list.component.html',
   styleUrls: ['./details-list.component.css']
 })

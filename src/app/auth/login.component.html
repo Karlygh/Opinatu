@@ -1,8 +1,9 @@
-<div class="login-container">
-  <h2>Bienvenido a OpinasTu</h2>
+<div class="login-container bg-dark text-white rounded shadow p-4">
+  <h2 class="text-warning mb-4">Bienvenido a OpinasTu</h2>
   <form (ngSubmit)="onSubmit()" class="login-form">
     <input 
       type="text" 
+      class="form-control bg-secondary text-white border-secondary mb-3"
       placeholder="Usuario (admin)" 
       [(ngModel)]="email" 
       name="email" 
@@ -10,17 +11,18 @@
     >
     <input 
       type="password" 
+      class="form-control bg-secondary text-white border-secondary mb-3"
       placeholder="Contraseña (admin)" 
       [(ngModel)]="password" 
       name="password" 
       required
     >
-    <div *ngIf="loginError" class="error-message">
+    <div *ngIf="loginError" class="error-message text-danger mb-3">
       {{ loginError }}
     </div>
-    <button type="submit" class="login-button">Ingresar</button>
+    <button type="submit" class="btn btn-warning w-100">Ingresar</button>
   </form>
-  <p class="register-link">
-    ¿No tienes cuenta? <a [routerLink]=" '/register' ">Regístrate aquí</a>
+  <p class="register-link mt-3">
+    ¿No tienes cuenta? <a [routerLink]="'/register'" class="text-warning">Regístrate aquí</a>
   </p>
 </div>

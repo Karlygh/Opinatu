@@ -7,7 +7,6 @@ import { PeliculaService } from '../servicios/pelicula.service';
 import { OpinionesService } from '../servicios/opiniones.service';
 
 import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from '../footer/footer.component';
 import { FiltroGeneroComponent } from '../filtro-genero/filtro-genero.component';
 
 @Component({
@@ -17,7 +16,6 @@ import { FiltroGeneroComponent } from '../filtro-genero/filtro-genero.component'
     CommonModule,
     FormsModule,
     NavbarComponent,
-    FooterComponent,
     FiltroGeneroComponent
   ],
   templateUrl: './home.component.html',
