@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OpinionesService } from '../servicios/opiniones.service';
-import { NavbarComponent } from '../navbar/navbar.component';
+
 import { PeliculaService } from '../servicios/pelicula.service';
 
 @Component({
   selector: 'app-mis-opiniones',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FormsModule],
+  imports: [CommonModule,  FormsModule],
   templateUrl: './mis-opiniones.component.html',
   styleUrls: ['./mis-opiniones.component.css']
 })

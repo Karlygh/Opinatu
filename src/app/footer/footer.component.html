@@ -4,7 +4,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer bg-dark text-warning py-1 border-top border-warning">
+  <footer class="bg-dark text-warning py-1 border-top border-warning ">
     <div class="container-fluid margin-footer">
       <div class="row">
         <!-- Columna 1: Logo y descripción -->
@@ -41,7 +41,7 @@
               <a [routerLink]="['/home']" class="color-li d-block">Películas</a>
             </li>
             <li class="mb-2">
-              <a href="#" class="color-li d-block">Personajes</a>
+              <a [routerLink]="['/actores']" class="color-li d-block">Personajes</a>
             </li>
             <li class="mb-2">
               <a href="#" class="color-li d-block">Escenas</a>
@@ -73,6 +73,7 @@
             </li>
           </ul>
         </div>
+        
 
         <!-- Columna 4: Newsletter -->
         <div class="col-md-3 mt-4 margin-newsletter">
@@ -83,12 +84,14 @@
                    class="form-control bg-secondary text-white border-warning me-2"
                    placeholder="Tu email"
                    [(ngModel)]="email">
-            <button class="btn btn-warning ms-1 px-3" type="button" (click)="enviarCorreo()">
-              &gt;
-            </button>
+                   <button class="btn btn-warning ms-1 px-3" type="button" (click)="enviarCorreo()">
+                    &gt;
+                  </button>
+                  
           </div>
         </div>
-      </div>
+        
+        
 
       <!-- Copyright -->
       <div class="row pt-3 mt-3 border-top border-warning">
@@ -104,5 +107,6 @@
         </div>
       </div>
     </div>
-  </footer>
+ 
 </div>
+ </footer>

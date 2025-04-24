@@ -7,7 +7,7 @@ import { NavbarComponent } from "../navbar/navbar.component"; // Ajusta la ruta 
 @Component({
   selector: 'app-personajes',
   standalone: true, // Si estás usando componentes standalone
-  imports: [CommonModule, NavbarComponent], // Asegúrate de importar CommonModule
+  imports: [CommonModule], // Asegúrate de importar CommonModule
   templateUrl: './personajes.component.html',
   styleUrl: './personajes.component.css'
 })

@@ -1,28 +1,30 @@
-<div class="login-container bg-dark text-white rounded shadow p-4">
-  <h2 class="text-warning mb-4">Bienvenido a OpinasTu</h2>
-  <form (ngSubmit)="onSubmit()" class="login-form">
-    <input 
-      type="text" 
-      class="form-control bg-secondary text-white border-secondary mb-3"
-      placeholder="Usuario (admin)" 
-      [(ngModel)]="email" 
-      name="email" 
-      required
-    >
-    <input 
-      type="password" 
-      class="form-control bg-secondary text-white border-secondary mb-3"
-      placeholder="Contraseña (admin)" 
-      [(ngModel)]="password" 
-      name="password" 
-      required
-    >
-    <div *ngIf="loginError" class="error-message text-danger mb-3">
-      {{ loginError }}
-    </div>
-    <button type="submit" class="btn btn-warning w-100">Ingresar</button>
-  </form>
-  <p class="register-link mt-3">
-    ¿No tienes cuenta? <a [routerLink]="'/register'" class="text-warning">Regístrate aquí</a>
-  </p>
+<div class="d-flex justify-content-center align-items-center min-vh-100 bg-dark">
+  <div class="login-container bg-dark text-white rounded shadow p-5" style="max-width: 400px; width: 100%;">
+    <h2 class="text-warning mb-4 text-center">Bienvenido a OpinasTu</h2>
+    <form (ngSubmit)="onSubmit()" class="login-form">
+      <input 
+        type="text" 
+        class="form-control bg-secondary text-white border-secondary mb-3"
+        placeholder="Usuario (admin)" 
+        [(ngModel)]="email" 
+        name="email" 
+        required
+      >
+      <input 
+        type="password" 
+        class="form-control bg-secondary text-white border-secondary mb-3"
+        placeholder="Contraseña (admin)" 
+        [(ngModel)]="password" 
+        name="password" 
+        required
+      >
+      <div *ngIf="loginError" class="error-message text-danger mb-3">
+        {{ loginError }}
+      </div>
+      <button type="submit" class="btn btn-warning w-100">Ingresar</button>
+    </form>
+    <p class="register-link mt-3 text-center">
+      ¿No tienes cuenta? <a [routerLink]="'/register'" class="text-warning">Regístrate aquí</a>
+    </p>
+  </div>
 </div>

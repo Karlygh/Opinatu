@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { NavbarComponent } from '../navbar/navbar.component';
+
 import { PeliculaService } from '../servicios/pelicula.service';
 
 
 @Component({
   selector: 'app-details-list',
   standalone: true,
-  imports: [CommonModule, NavbarComponent,  RouterModule],
+  imports: [CommonModule,   RouterModule],
   templateUrl: './details-list.component.html',
   styleUrls: ['./details-list.component.css']
 })

@@ -3,6 +3,9 @@
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
+  .custom-navbar {
+    background-color: #212529; /* Cambia esto por el color que quieras */
+  }
   
   .nav-link.active {
     color: #ffc107 !important;
@@ -17,7 +20,7 @@
     background-color:#171a1d;
   }
   .nav-link{
-    color: rgb(136, 132, 132);
+    color: rgb(158, 154, 154);
   }
   .nav-link {
     transition: all 0.3s ease;

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,4 +10,14 @@ import { RouterModule } from '@angular/router';
 })
 export class NavbarComponent {
 
+  constructor(private router: Router) {}
+  logout() {
+    localStorage.removeItem('isAuthenticated');
+    this.router.navigate(['/login']);
+  }
+  
+  
+  soundtrackspage() {
+    this.router.navigate(['/soundtrack']);
+}
 }

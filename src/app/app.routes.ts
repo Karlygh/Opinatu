@@ -4,7 +4,7 @@ export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: 'home',
-    loadComponent: () => import('../app/home/home.component').then(m => m.HomeComponent)
+    loadComponent: () => import('../app/home/home.component').then(m => m.HomeComponent),
   },
   {
     path: 'login',
@@ -16,14 +16,14 @@ export const routes: Routes = [
   },
   {
     path: 'mis-opiniones',
-    loadComponent: () => import('./mis-opiniones/mis-opiniones.component').then(m => m.MisOpinionesComponent)
-  },
-  {
-    path: 'details-list/:id',
-    loadComponent: () => import('./details-list/details-list.component').then(m => m.DetailsListComponent)
+    loadComponent: () => import('./mis-opiniones/mis-opiniones.component').then(m => m.MisOpinionesComponent),
   },
   {
     path: 'actores',
-    loadComponent: () => import('./personajes/personajes.component').then(m => m.PersonajesComponent)
+    loadComponent: () => import('./personajes/personajes.component').then(m => m.PersonajesComponent),
+  },
+  {
+    path: 'soundtrack',
+    loadComponent: () => import('./soundtracks/soundtracks.component').then(m => m.SoundtracksComponent),
   }
 ];

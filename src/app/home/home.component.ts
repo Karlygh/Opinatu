@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { PeliculaService } from '../servicios/pelicula.service';
 import { OpinionesService } from '../servicios/opiniones.service';
 
-import { NavbarComponent } from '../navbar/navbar.component';
+
 import { FiltroGeneroComponent } from '../filtro-genero/filtro-genero.component';
 
 @Component({
@@ -15,7 +15,6 @@ import { FiltroGeneroComponent } from '../filtro-genero/filtro-genero.component'
   imports: [
     CommonModule,
     FormsModule,
-    NavbarComponent,
     FiltroGeneroComponent
   ],
   templateUrl: './home.component.html',
