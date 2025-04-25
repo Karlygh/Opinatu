@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 export class PeliculaService {
 
   // URL del backend o Mockoon donde se consultan las películas
-  private apiUrl = 'http://localhost:3000/peliculas';
+  private apiUrl = 'assets/peliculas.json';;
 
   constructor(private http: HttpClient) {}
 
