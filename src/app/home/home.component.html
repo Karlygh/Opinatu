@@ -1,6 +1,7 @@
-
-
+<!-- Título principal -->
 <h1 class="text-center text-warning mb-5">Películas</h1>
+
+<!-- Filtro por género -->
 <div class="container mb-4">
   <app-filtro-genero
     [peliculas]="peliculas"
@@ -8,12 +9,13 @@
   </app-filtro-genero>
 </div>
 
+<!-- Lista de películas -->
 <div class="container">
   <div class="row g-4 align-items-stretch">
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let peli of peliculasPagina">
       <div class="movie-card bg-dark text-white p-3 rounded shadow h-100 d-flex flex-column" style="min-height: 450px;">
         <h2 class="h5">{{ peli.title }} ({{ peli.year }})</h2>
-        <img [src]="peli.imageUrl" alt="{{ peli.title }}" class="img-fluid rounded mb-2 movie-poster"/>
+        <img [src]="peli.imageUrl" alt="{{ peli.title }}" class="img-fluid rounded mb-2 movie-poster" />
         <p><strong>Director:</strong> {{ peli.director }}</p>
         <p><strong>Género:</strong> {{ peli.genre.join(', ') }}</p>
         <p><strong>Fecha:</strong> {{ peli.year }}</p>
@@ -31,8 +33,7 @@
           <h5>Opiniones:</h5>
           <ul class="list-group">
             <li *ngFor="let op of peli.opinions" class="list-group-item bg-dark text-white border-light">
-              <strong>{{ op.name }}:</strong> {{ op.opinion }}
-              <strong>({{ op.nota }}/10)</strong>
+              <strong>{{ op.name }}:</strong> {{ op.opinion }} <strong>({{ op.nota }}/10)</strong>
             </li>
           </ul>
           <div class="text-center mt-2">
@@ -46,11 +47,12 @@
   </div>
 </div>
 
+<!-- Modal de opinión -->
 <div class="modal fade" id="opinionModal" tabindex="-1" aria-labelledby="opinionModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header border-warning d-flex justify-content-center position-relative">
-        <h5 class="modal-title text-center w-100" id="opinionModalLabel">Opinión sobre {{peliSeleccionada?.title}}</h5>
+        <h5 class="modal-title text-center w-100" id="opinionModalLabel">Opinión sobre {{ peliSeleccionada?.title }}</h5>
         <button
           type="button"
           class="btn-close position-absolute end-0 me-2"
@@ -101,33 +103,27 @@
   </div>
 </div>
 
+<!-- Paginación -->
 <div class="d-flex justify-content-center mt-4">
   <nav aria-label="Page navigation">
     <ul class="pagination">
       <li class="page-item" [class.disabled]="paginaActual === 1">
-        <a class="page-link "
-           (click)="cambiarPagina(paginaActual - 1)"
-           aria-label="Previous">
+        <a class="page-link" (click)="cambiarPagina(paginaActual - 1)" aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
 
-      <li class="page-item" *ngFor="let pagina of getRangoPaginas()"
-          [class.active]="pagina === paginaActual">
-        <a class="page-link bg-dark text-warning border-warning"
-           (click)="cambiarPagina(pagina)">
+      <li class="page-item" *ngFor="let pagina of getRangoPaginas()" [class.active]="pagina === paginaActual">
+        <a class="page-link bg-dark text-warning border-warning" (click)="cambiarPagina(pagina)">
           {{ pagina }}
         </a>
       </li>
 
       <li class="page-item" [class.disabled]="paginaActual === totalPaginas">
-        <a class="page-link bg-dark text-warning border-warning"
-           (click)="cambiarPagina(paginaActual + 1)"
-           aria-label="Next">
+        <a class="page-link bg-dark text-warning border-warning" (click)="cambiarPagina(paginaActual + 1)" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
         </a>
       </li>
     </ul>
   </nav>
 </div>
-

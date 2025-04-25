@@ -1,10 +1,7 @@
-<div class="page-container">
-  <main class="content-wrap">
-    <router-outlet></router-outlet>
-  </main>
+
 
   <!-- Footer -->
-  <footer class="bg-dark text-warning py-1 border-top border-warning ">
+  <footer class="bg-dark text-warning py-1 border-top border-warning">
     <div class="container-fluid margin-footer">
       <div class="row">
         <!-- Columna 1: Logo y descripción -->
@@ -35,19 +32,16 @@
           <h5 class="text-uppercase mb-3 text-center">Explorar</h5>
           <ul class="list-unstyled text-center">
             <li class="mb-2">
-              <a [routerLink]="['/home']" class="color-li d-block">Inicio</a>
+              <a [routerLink]="['/home']" class="color-li d-block" (click)="scrollToTop()">Inicio</a>
             </li>
             <li class="mb-2">
-              <a [routerLink]="['/home']" class="color-li d-block">Películas</a>
+              <a [routerLink]="['/home']" class="color-li d-block" (click)="scrollToTop()">Películas</a>
             </li>
             <li class="mb-2">
-              <a [routerLink]="['/actores']" class="color-li d-block">Personajes</a>
+              <a [routerLink]="['/actores']" class="color-li d-block" (click)="scrollToTop()">Personajes</a>
             </li>
             <li class="mb-2">
-              <a href="#" class="color-li d-block">Escenas</a>
-            </li>
-            <li>
-              <a href="#" class="color-li d-block">Soundtracks</a>
+              <a [routerLink]="['/soundtrack']" class="color-li d-block" (click)="scrollToTop()">Soundtracks</a>
             </li>
           </ul>
         </div>
@@ -57,19 +51,19 @@
           <h5 class="text-uppercase mb-3">Clásicos</h5>
           <ul class="list-unstyled">
             <li class="mb-2">
-              <a [routerLink]="['/details-list', 2]">Pulp Fiction</a>
+              <a [routerLink]="['/details-list', 2]" (click)="scrollToTop()">Pulp Fiction</a>
             </li>
             <li class="mb-2">
-              <a [routerLink]="['/details-list', 1]">Kill Bill</a>
+              <a [routerLink]="['/details-list', 1]" (click)="scrollToTop()">Kill Bill</a>
             </li>
             <li class="mb-2">
-              <a [routerLink]="['/details-list', 9]">Django Unchained</a>
+              <a [routerLink]="['/details-list', 9]" (click)="scrollToTop()">Django Unchained</a>
             </li>
             <li class="mb-2">
-              <a [routerLink]="['/details-list', 8]">Inglourious Basterds</a>
+              <a [routerLink]="['/details-list', 8]" (click)="scrollToTop()">Inglourious Basterds</a>
             </li>
             <li>
-              <a [routerLink]="['/details-list', 4]">Reservoir Dogs</a>
+              <a [routerLink]="['/details-list', 4]" (click)="scrollToTop()">Reservoir Dogs</a>
             </li>
           </ul>
         </div>
@@ -80,18 +74,22 @@
           <h5 class="text-uppercase mb-3">Newsletter</h5>
           <p class="small mb-3">Suscríbete para recibir novedades del mundo Tarantino.</p>
           <div class="input-group pe-3">
-            <input type="email"
-                   class="form-control bg-secondary text-white border-warning me-2"
-                   placeholder="Tu email"
-                   [(ngModel)]="email">
-                   <button class="btn btn-warning ms-1 px-3" type="button" (click)="enviarCorreo()">
-                    &gt;
-                  </button>
-                  
+            <input
+              type="text" class="form-control bg-secondary text-white border-warning me-2"
+              placeholder="Tu email"
+              [(ngModel)]="email"
+              #emailInput="ngModel"
+              pattern=".+@.+" required
+            >
+            <button class="btn btn-warning ms-1 px-3" type="button" (click)="enviarCorreo(emailInput.valid!)">
+              &gt;
+            </button>
           </div>
-        </div>
-        
-        
+          <div *ngIf="emailInput.invalid && emailInput.touched" class="text-warning small mt-1">
+            Por favor, ingrese un correo electrónico válido.
+          </div>
+      </div>
+      </div>
 
       <!-- Copyright -->
       <div class="row pt-3 mt-3 border-top border-warning">
@@ -100,13 +98,11 @@
         </div>
         <div class="col-md-6 text-center text-md-end">
           <p class="small mb-0">
-            <a href="#" class="text-warning text-decoration-none me-3">Términos</a>
-            <a href="#" class="text-warning text-decoration-none me-3">Privacidad</a>
-            <a href="#" class="text-warning text-decoration-none">Contacto</a>
+            <a href="#" class="text-warning text-decoration-none me-3" (click)="scrollToTop()">Términos</a>
+            <a href="#" class="text-warning text-decoration-none me-3" (click)="scrollToTop()">Privacidad</a>
+            <a href="#" class="text-warning text-decoration-none" (click)="scrollToTop()">Contacto</a>
           </p>
         </div>
       </div>
     </div>
- 
-</div>
- </footer>
+  </footer>

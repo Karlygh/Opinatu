@@ -9,14 +9,15 @@ import { OpinionesService } from '../servicios/opiniones.service';
 
 import { FiltroGeneroComponent } from '../filtro-genero/filtro-genero.component';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     CommonModule,
     FormsModule,
-    FiltroGeneroComponent
-  ],
+    FiltroGeneroComponent,
+],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

@@ -1,4 +1,6 @@
-/* ESTILOS GENERALES */
+/* ================================
+   ESTILOS GENERALES
+================================== */
 h1 {
   font-size: 3rem;
   text-align: center;
@@ -12,12 +14,14 @@ h2 {
 }
 h2:hover {
   color: #f7c948;
- 
 }
 
-.movie-card:hover h2{
-  text-align: center;
-  text-shadow: 0 0 5px #f7c948, 0 0 10px #f7c948;
+strong {
+  color: #f7c948;
+}
+
+p {
+  margin: 0.3rem 0;
 }
 
 img {
@@ -27,15 +31,17 @@ img {
   border: 3px solid #444;
 }
 
-p {
-  margin: 0.3rem 0;
+/* ================================
+   EFECTOS SOBRE TARJETAS / TEXTOS
+================================== */
+.movie-card:hover h2 {
+  text-align: center;
+  text-shadow: 0 0 5px #f7c948, 0 0 10px #f7c948;
 }
 
-strong {
-  color: #f7c948;
-}
-
-/* Tarjeta de película */
+/* ================================
+   TARJETA DE PELÍCULA
+================================== */
 .pelicula-card {
   background: #2c2c3e;
   padding: 1.5rem;
@@ -50,29 +56,106 @@ strong {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
 }
 
-/* Botones */
-button {
-  margin-top: 1rem;
+/* Tarjeta animada (estética alternativa) */
+.movie-card {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.movie-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(255, 193, 7, 0.2);
+  border: 1px solid rgba(255, 193, 7, 0.6);
+  z-index: 10;
+}
+
+/* ================================
+   EFECTOS SOBRE IMAGEN Y BOTONES
+================================== */
+.movie-poster {
+  transition: all 0.3s ease;
+  filter: brightness(0.9);
+}
+
+.movie-card:hover .movie-poster {
+  filter: brightness(1);
+  transform: scale(1.03);
+}
+
+.movie-button {
+  transition: all 0.2s ease;
+}
+.movie-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);
+}
+
+/* ================================
+   BOTONES GENERALES
+================================== */
+button,
+.btn-warning {
   background: #f7c948;
   color: #1e1e2f;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
   font-weight: bold;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-button:hover {
+button:hover,
+.btn-warning:hover {
   background: #ffdf70;
+  transform: translateY(-2px);
 }
 
-/* Opiniones */
+.btn-outline-warning {
+  border: 2px solid #f7c948;
+  color: #f7c948;
+  background-color: transparent;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-warning:hover {
+  background-color: #f7c948;
+  color: #1e1e2f;
+  box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-outline-warning.active {
+  background-color: #ffc107;
+  color: #000;
+  font-weight: bold;
+}
+
+/* ================================
+   BOTÓN CERRAR MODAL (X)
+================================== */
+.btn-close {
+  filter: invert(1);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+.btn-close:hover {
+  filter: invert(1) brightness(1.5);
+  transform: rotate(90deg);
+}
+
+/* ================================
+   OPINIONES
+================================== */
 ul {
   padding-left: 0;
 }
-
-li {
+li,
+.list-group-item {
   background-color: #b8b8d3;
   color: #e0e0e0;
   padding: 0.8rem;
@@ -80,13 +163,21 @@ li {
   margin-bottom: 0.8rem;
   list-style: none;
   border-left: 3px solid #f7c948;
-  
+  transition: all 0.2s ease;
 }
 
-/* Modal */
-.modal-dialog{
+.list-group-item:hover {
+  background-color: rgba(255, 193, 7, 0.1) !important;
+  transform: translateX(5px);
+}
+
+/* ================================
+   MODAL
+================================== */
+.modal-dialog {
   background-color: tomato;
 }
+
 .modal-content {
   background-color: #212529;
   border: 2px solid #f7c948;
@@ -106,7 +197,7 @@ li {
 
 .modal-body {
   padding: 1.5rem;
-  background-color:#0f0f13;
+  background-color: #0f0f13;
   font-style: italic;
 }
 
@@ -116,7 +207,9 @@ li {
   background-color: #282b2e;
 }
 
-/* Formulario en modal */
+/* ================================
+   FORMULARIO
+================================== */
 .form-label {
   color: #f7c948;
   font-weight: 500;
@@ -148,100 +241,36 @@ textarea.form-control {
   resize: vertical;
 }
 
-/* Botones del modal */
-.btn-warning {
-  background-color: #f7c948;
-  color: #1e1e2f;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.btn-warning:hover {
-  background-color: #ffdf70;
-  transform: translateY(-2px);
-}
-
-.btn-outline-warning {
-  border: 2px solid #f7c948;
-  color: #f7c948;
-  background-color: transparent;
-  padding: 0.6rem 1.2rem;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.btn-outline-warning:hover {
-  background-color: #f7c948;
-  color: #1e1e2f;
-}
-
-/* Botón cerrar (X) */
-.btn-close {
-  filter: invert(1);
-  opacity: 1;
-  transition: all 0.3s ease;
-}
-
-.btn-close:hover {
-  filter: invert(1) brightness(1.5);
-  transform: rotate(90deg);
-}
-
-/* Placeholder moderno */
 ::placeholder {
   color: #aaa;
   opacity: 1;
 }
-/* Estilos para la paginación */
-/* Personalización adicional para tu tema oscuro/amarillo */
-/* Contenedor principal */
+
+/* ================================
+   FILTRO DE GÉNERO
+================================== */
+.filtro-genero-container {
+  background-color: rgba(33, 37, 41, 0.8);
+  border: 1px solid #ffc107;
+}
+
+/* ================================
+   PAGINACIÓN
+================================== */
 .pagination {
   display: flex;
-  list-style: none;
-  padding: 0;
   justify-content: center;
   margin: 1.5rem 0;
-}
-
-/* Elementos individuales */
-.page-item {
-  margin: 0 0.15rem; /* Espacio muy reducido entre elementos */
-  background-color: transparent; /* Fondo transparente */
-}
-
-/* Enlaces y botones */
-.page-link {
-  display: block;
-  padding: 0.25rem 0.5rem; /* Relleno mínimo */
-  font-size: 0.9rem;
-  line-height: 1.2;
-  color: #ffd700; /* Amarillo más suave */
-  background-color: transparent;
-  border: 1px solid rgba(255, 215, 0, 0.3); /* Borde sutil */
-  text-decoration: none;
-  transition: all 0.2s ease;
-  border-radius: 2px; /* Esquinas ligeramente redondeadas */
-}
-
-/* Hover */
-/* Contenedor principal */
-.pagination {
-  display: flex;
   list-style: none;
   padding: 0;
-  justify-content: center;
-  margin: 1.5rem 0;
 }
 
-/* Elementos individuales */
 .page-item {
   margin: 0 0.15rem;
-  perspective: 1000px; /* Para efectos 3D */
+  perspective: 1000px;
+  background-color:#68665e;
 }
 
-/* Enlaces y botones */
 .page-link {
   display: block;
   padding: 0.25rem 0.5rem;
@@ -252,19 +281,15 @@ textarea.form-control {
   border: 1px solid rgba(255, 215, 0, 0.3);
   text-decoration: none;
   border-radius: 2px;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-}
-.page-link.bg-dark.text-warning:hover {
-  background-color: gold;        /* Fondo en hover */
-  color: black !important;       /* Texto en hover */
-  border-color: gold;
+  cursor: pointer;
 }
 
-/* Efecto hover - Deslizamiento amarillo */
 .page-link:hover {
-  color: #000;
+  color: black;
+  background-color: rgba(255, 193, 7, 0.1);
   transform: translateY(-2px);
 }
 
@@ -278,172 +303,4 @@ textarea.form-control {
   background: #ffd700;
   z-index: -1;
   animation: slideIn 0.3s forwards;
-}
-
-@keyframes slideIn {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-/* Página activa */
-.page-item.active .page-link {
-  color: #000;
-  background-color: #ff9100;
-  border-color: #ffd700;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 5px rgba(255, 215, 0, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
-  }
-}
-
-/* Elementos deshabilitados */
-.page-item.disabled .page-link {
-  color: rgba(255, 215, 0, 0.3);
-  background-color: transparent;
-  border-color: rgba(255, 215, 0, 0.1);
-  cursor: default;
-  transform: none !important;
-}
-
-/* Flechas - Efecto especial */
-.page-link[aria-label="Previous"]:hover,
-.page-link[aria-label="Next"]:hover {
-  transform: translateX(0);
-}
-
-.page-link[aria-label="Previous"]:hover {
-  animation: bounceLeft 0.5s;
-}
-
-.page-link[aria-label="Next"]:hover {
-  animation: bounceRight 0.5s;
-}
-.page-link:hover {
-  color: black; /* o el color que prefieras */
-}
-
-
-@keyframes bounceLeft {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-3px);
-  }
-}
-
-@keyframes bounceRight {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(3px);
-  }
-}
-/* Estilo para el elemento de página activa (cualquier página) */
-.page-item.active .page-link.bg-dark.text-warning {
-  background-color: #f7c948 !important;  /* Fondo amarillo */
-  color: #1e1e2f !important;            /* Texto oscuro para mejor contraste */
-  border-color: #f7c948 !important;     /* Borde amarillo */
-}
-
-/* Efecto hover para el elemento activo */
-.page-item.active .page-link.bg-dark.text-warning:hover {
-  background-color: #ffdf70 !important;  /* Amarillo más claro al pasar el mouse */
-  transform: scale(1.05);                /* Efecto de escala */
-}
-/* Animaciones para las tarjetas de películas */
-.movie-card {
-  transition: all 0.3s ease;
-  transform: translateY(0);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 193, 7, 0.3);
-}
-
-.movie-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 12px 24px rgba(255, 193, 7, 0.2);
-  border: 1px solid rgba(255, 193, 7, 0.6);
-  z-index: 10;
-}
-
-/* Efecto en la imagen */
-.movie-poster {
-  transition: all 0.3s ease;
-  filter: brightness(0.9);
-}
-
-.movie-card:hover .movie-poster {
-  filter: brightness(1);
-  transform: scale(1.03);
-}
-
-/* Efecto en los botones */
-.movie-button {
-  transition: all 0.2s ease;
-}
-
-.movie-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);
-}
-
-/* Animación para las opiniones */
-.list-group-item {
-  transition: all 0.2s ease;
-}
-
-.list-group-item:hover {
-  background-color: rgba(255, 193, 7, 0.1) !important;
-  transform: translateX(5px);
-}
-/* Estilos para el filtro de género */
-.filtro-genero-container {
-  background-color: rgba(33, 37, 41, 0.8);
-  border: 1px solid #ffc107;
-}
-
-.btn-outline-warning.active {
-  background-color: #ffc107;
-  color: #000;
-  font-weight: bold;
-}
-
-.btn-outline-warning {
-  transition: all 0.3s ease;
-}
-
-.btn-outline-warning:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);
-}
-
-
-
-/* Estilos para la paginación */
-.page-link {
-  cursor: pointer;
-}
-
-.page-item.active .page-link {
-  background-color: #ffc107;
-  border-color: #ffc107;
-  color: #000;
-}
-
-.page-link:hover {
-  background-color: rgba(255, 193, 7, 0.1);
 }

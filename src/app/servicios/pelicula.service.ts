@@ -5,16 +5,20 @@ import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class PeliculaService {
-  private apiUrl = 'http://localhost:3000/peliculas'; // Aquí pones la URL de tu Mockoon
+
+  // URL del backend o Mockoon donde se consultan las películas
+  private apiUrl = 'http://localhost:3000/peliculas';
 
   constructor(private http: HttpClient) {}
 
+  // Obtiene la lista completa de películas
   getPeliculas(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
 
+  // Obtiene solo los títulos (asume que el backend responde con { titulos: [...] })
   getTitulos(): Observable<string[]> {
-    return this.http.get<{ titulos: string[] }>(this.apiUrl)  // Se asume que tu Mockoon devuelve { titulos: [...] }
+    return this.http.get<{ titulos: string[] }>(this.apiUrl)
       .pipe(map(data => data.titulos));
   }
 }
