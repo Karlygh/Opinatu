@@ -76,7 +76,9 @@ export class HomeComponent implements OnInit {
     if (pagina > 0 && pagina <= this.totalPaginas) {
       this.paginaActual = pagina;
       this.actualizarPeliculasPagina();
-      window.scrollTo(0, 0);
+      
+      const container = document.querySelector('.container'); // Ajusta el selector
+      container?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
