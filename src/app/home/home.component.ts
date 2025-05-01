@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   paginaActual: number = 1;
   peliculasPorPagina: number = 6;
   totalPaginas: number = 0;
+  terminoBusqueda: string = '';
 
   nombre: string = '';
   opinion: string = '';
@@ -81,6 +82,18 @@ export class HomeComponent implements OnInit {
       container?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
+  filtrarPeliculasPorTitulo() {
+    const termino = this.terminoBusqueda.trim().toLowerCase();
+  
+    this.peliculasFiltradas = this.peliculas.filter(peli =>
+      peli.title.toLowerCase().includes(termino)
+    );
+  
+    this.paginaActual = 1;
+    this.inicializarPaginacion();
+  }
+  
+  
 
   getRangoPaginas(): number[] {
     const paginas: number[] = [];

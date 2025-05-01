@@ -1,5 +1,16 @@
 <!-- Título principal -->
 <h1 class="text-center text-warning mb-5">Películas</h1>
+<!-- Filtro por título -->
+<div class="container mb-4" id="filtroTitulo">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Buscar película por título..."
+    [(ngModel)]="terminoBusqueda"
+    (input)="filtrarPeliculasPorTitulo()"
+  />
+</div>
+
 
 <!-- Filtro por género -->
 <div class="container mb-4">
