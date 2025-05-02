@@ -9,7 +9,7 @@ import { OpinionesService } from '../servicios/opiniones.service';
 
 import { FiltroGeneroComponent } from '../filtro-genero/filtro-genero.component';
 
-
+//Root
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -139,6 +139,7 @@ export class HomeComponent implements OnInit {
       alert('Por favor, completa todos los campos, incluyendo la nota (1-10).');
     }
   }
+  
   verDetalles(movieId: number) {
     if (movieId) {
       this.router.navigate([`/details-list/${movieId}`]);
